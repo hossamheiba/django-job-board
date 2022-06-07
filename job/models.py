@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 # Create your models here.
 
 # django model field
@@ -9,6 +10,7 @@ JOB_TYPE = [
 ]
 
 class job (models.Model):  # table
+    owner=models.ForeignKey(User,on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     job_type = models.CharField(max_length=15, choices=JOB_TYPE)
     description = models.CharField(max_length=1000)
@@ -38,7 +40,7 @@ class Cateogry (models.Model):
 class Applay (models.Model):
     job=models.ForeignKey(job,on_delete=models.CASCADE)
     name=models.CharField(max_length=15)
-    email=models.EmailField(max_length=10)
+    email=models.EmailField(max_length=50)
     website=models.URLField()
     cv=models.FileField(upload_to="cv/")
     texteria=models.TextField(max_length=100)
@@ -46,5 +48,4 @@ class Applay (models.Model):
     def __str__(self):
         return self.name
 
-    
 

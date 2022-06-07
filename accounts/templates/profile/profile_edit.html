@@ -1,0 +1,42 @@
+
+
+  {% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block body %}
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>{{job_detail}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<div class="job_details_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="job_sumary">
+                    <div class="summery_header">
+                        <h3>Job Summery</h3>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% bootstrap_form  profile_edit_one %}
+                        {% bootstrap_form  profile_edit_tow %}
+                        {% buttons %}
+                        <button class="boxed-btn3 w-100" type="submit">Apply Now</button>
+                        {% endbuttons %}
+                      </form>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

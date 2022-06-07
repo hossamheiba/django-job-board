@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block body %}
+<!-- bradcam_area  -->
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>{{job_detail}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<div class="job_details_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mx-auto">
+                <div class="job_sumary">
+                    <div class="summery_header">
+                        <h3>Job Summery</h3>
+                    </div>
+                    
+                    <div class="job_content">
+                        <ul>
+                            <li>Name: <span>{{My_profile}}</span></li>
+                            <li>Email: <span>{{My_profile.user.email}}</span></li>
+                            <li>phone: <span>{{My_profile.phone}}</span></li>
+                            <li>city: <span>{{My_profile.city}}</span></li>
+                            <img style="width:100px ;" src="{{My_profile.image.url}}" alt="">
+                            <button class="boxed-btn3 w-100 my-3" type="submit"><a href="{% url 'accounts:profile_edit' %}" class="text-white ">edit profile</a></button>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
